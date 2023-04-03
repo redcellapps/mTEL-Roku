@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<component name="Task_CallAPI" extends="Task" >
+
+    <interface>
+        <!-- {roAssociativeArray} - request data @required: httpMethodString & urlString & postBodyString & headersAssociativeArray -->
+        <field id="requestData" type="assocarray" />
+        <!-- {roAssociativeArray} - result of the task -->
+        <field id="result" type="assocarray" />
+        <field id="requestFrom" type="integer" />
+    </interface>
+
+    <script type="text/brightscript" uri="pkg:/components/Helpers/utils.brs"/>
+    <script type="text/brightscript" uri="pkg:/components/Tasks/callAPITask.brs"/>
+
+    <children>
+    </children>
+
+</component>

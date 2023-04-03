@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--********** Copyright 2022 RedCellApps.  All Rights Reserved. **********-->
+
+<!--THIS UI IS MADE FOR 1920x1080px DISPLAY-->
+
+<component name="SearchScreen" extends="Group" initialFocus = "TopMenu">
+	
+	<interface>
+    <field id="token" type = "string"/>
+  	<field id="contents" type = "array"/>
+	<field id="contnt" type = "node"/>
+	<field id="landTo" type = "string"/>
+  	</interface>
+	<!-- importing main handler -->
+	<script type="text/brightscript" uri="pkg:/components/SearchScreen/SearchScreen.brs" />
+	<children>
+	<Poster
+		id = "ionPoster"
+		uri = "pkg:/images/IonBkgFullHD.png"
+		width = "0.0"
+		height = "0.0"
+		translation = "[0, 0]"
+	/>
+	
+<ContentNode id = "TypeContentNode" >
+      <ContentNode hdgridposterurl="pkg:/images/NavBar/TVButton.png" hdposterurl = "pkg:/images/NavBar/WTVButton.png" title = "1"  />
+<!--       <ContentNode hdgridposterurl="pkg:/images/NavBar/RadioButton.png" hdposterurl = "pkg:/images/NavBar/WRadioButton.png" title = "2" /> -->
+<!--       <ContentNode hdgridposterurl="pkg:/images/NavBar/SportsButton.png" hdposterurl = "pkg:/images/NavBar/WSportsButton.png" title = "3" /> -->
+      <ContentNode hdgridposterurl="pkg:/images/NavBar/MoviesButton.png" hdposterurl = "pkg:/images/NavBar/WMoviesButton.png" title = "4"/>
+<!--       <ContentNode hdgridposterurl="pkg:/images/NavBar/MusicButton.png" hdposterurl = "pkg:/images/NavBar/WMusicButton.png" title = "5"/>     -->  
+    </ContentNode>
+          
+    <PosterGrid 
+      id = "TypeBarPosterGrid" 
+      basePosterSize = "[ 200, 80 ]" 
+      numColumns = "2" 
+      numRows = "1" 
+      itemSpacing = "[ 20, 20 ]"
+      translation="[750,220]" />
+      
+      <MarkupGrid 
+      id = "TopMenu" 
+      itemComponentName = "topmenuitem"
+      numColumns = "2" 
+      numRows = "1" 
+      itemSize = "[ 208, 75 ]" 
+      itemSpacing = "[ 20, 20 ]" 
+      drawFocusFeedback = "false"
+      translation="[750,200]"
+      
+       />
+           
+	<MarkupGrid 
+      id = "ChannelMarkupGrid" 
+      itemComponentName = "ContentScreenGridItem"
+      numColumns = "8" 
+      numRows = "1" 
+      itemSize = "[ 208, 75 ]" 
+      itemSpacing = "[ 20, 20 ]" 
+      drawFocusFeedback = "true"
+      translation="[100,350]"
+      
+       />
+      <MarkupGrid 
+      id = "EpgMarkupGrid" 
+      itemComponentName = "TvEpgGridItem"
+      numColumns = "7" 
+      numRows = "1" 
+      itemSize = "[ 220, 220 ]" 
+      itemSpacing = "[ 30, 30 ]" 
+      drawFocusFeedback = "true"
+      focusBitmapUri = "pkg:/images/EPGborder.png"
+      translation="[100,450]"
+       />
+       
+       <Label
+		id = "ShowTitle"
+		text = "Show Title"
+		width = "1280"
+		font="font:LargeBoldSystemFont"
+		translation = "[100, 680]"
+		horizAlign = "left"
+		vertAlign = "top"
+		wrap = "false"
+		color = "#eeeeee"
+		visible = "false"
+	   />
+	
+	<Label
+		id = "ShowTime"
+		text = "Utorak 29.10.2022. 11:44 - 12:15"
+		width = "960"
+		height = "300"
+		font="font:SmallBoldSystemFont"
+		translation = "[100, 730]"
+		horizAlign = "left"
+		vertAlign = "top"
+		wrap = "false"
+		color = "#999999"
+		visible = "false"
+	/>
+      
+       <Label
+		id = "ShowDesc"
+		text = "Show Description"
+		width = "1050"
+		height = "300"
+		translation = "[100, 790]"
+		horizAlign = "left"
+		vertAlign = "top"
+		wrap = "true"
+		color = "#eeeeee"
+		visible = "false"
+	/>
+	
+	 <Button
+           id="EpgBackButton"             
+           focusBitmapUri="pkg:/images/TimeShiftButton/EpgBack.png"                
+           focusFootprintBitmapUri = "pkg:/images/TimeShiftButton/EpgBackUn.png"
+           showFocusFootprint = "true"        
+           iconUri=""
+           focusedIconUri=""                        
+           textFont="font:MediumSystemFont"
+           focusedTextFont="font:MediumBoldSystemFont"
+           focusedTextColor = "0xEEEEEE"
+    	   textColor = "0xEEEEEE"
+    	   minWidth = "100"
+    	   height = "45"                 
+           text=""
+           translation="[1200,985]"
+           
+           />
+           
+            <Label
+			id = "EpgDateLabel"
+			text = ""
+			width = "350"
+			font="font:MediumSystemFont"
+			translation = "[1300, 990]"
+			horizAlign = "center"
+			vertAlign = "center"
+			wrap = "false"
+			color = "#eeeeee"
+			
+	  		/>
+           
+           <Button
+           id="EpgFwdButton"             
+           focusBitmapUri="pkg:/images/TimeShiftButton/EpgFwd.png"
+           focusFootprintBitmapUri = "pkg:/images/TimeShiftButton/EpgFwdUn.png"
+           showFocusFootprint = "true"                  
+           iconUri=""
+           focusedIconUri=""                        
+           textFont="font:MediumSystemFont"
+           focusedTextFont="font:MediumBoldSystemFont"
+           focusedTextColor = "0xEEEEEE"
+    	   textColor = "0xEEEEEE"
+    	   minWidth = "100"
+    	   height = "45"                   
+           text=""
+           translation="[1650,985]"
+           
+           />    
+           <Button
+           id="EpgLiveButton"             
+           focusBitmapUri="pkg:/images/TimeShiftButton/LiveFocus.png"
+           focusFootprintBitmapUri = "pkg:/images/TimeShiftButton/Live.png"
+           showFocusFootprint = "true"                  
+           iconUri=""
+           focusedIconUri=""                        
+           textFont="font:MediumSystemFont"
+           focusedTextFont="font:MediumBoldSystemFont"
+           focusedTextColor = "0xEEEEEE"
+    	   textColor = "0xEEEEEE"
+    	   minWidth = "100"
+    	   height = "45"                   
+           text=""
+           translation="[1775,985]"
+           />                                               
+	
+	
+	 <ZoomRowList 
+      id = "radioRowList" 
+      translation = "[ 100, 350 ]" 
+      itemComponentName = "radioItem" 
+      rowItemHeight = "30"
+      rowItemZoomHeight = "50"
+      rowHeight = "75"
+      rowZoomHeight = "100"
+      rowItemAspectRatio = "9.0"
+      spacingAfterRowItem = "[50]"
+      drawFocusFeedback = "true" />
+       
+       <ZoomRowList 
+      id = "VODRowList" 
+      translation = "[ 100, 250 ]" 
+      itemComponentName = "voditem" 
+      numRows = "4" 
+      rowItemHeight = "200"
+      rowItemZoomHeight = "250"
+      rowHeight = "250"
+      rowZoomHeight = "300"
+      rowItemAspectRatio = "1.77777"
+      itemSize = "[ 1720, 100 ]" 
+      itemSpacing = "[ 50, 50 ]" 
+      spacingAfterRowItem = "[50]"
+      showRowLabel = "[true]" 
+      drawFocusFeedback = "true" 
+      wrap = "false" />
+	
+
+	<standardKeyboardDialog
+			id = "dialog"
+			keyboardDomain = "numeric"
+			translation = "[300, 300]"
+	/>
+	
+	<Overhang
+      id="overhang"
+      showOptions="true"
+      showClock="true"
+      logoUri="pkg:/images/ionlogo.png"
+      translation="[0,60]"/>
+       
+    <Video id="videoBkg" width="1920" height="1080" visible="false" />
+        
+    <LoadingIndicator
+      id="loadingIndicator"
+      imageUri="pkg:/components/LoadingIndicator/loader.png"
+      clockwise="true"
+      spinInterval="2"
+      fadeInterval="0.5"
+      spacing="20"
+      imageWidth="100"
+      text="Loading..."
+      width="1920"
+      height="1080"
+      centered="false"
+      translation="[0, 0]"
+      textPadding="10"
+      font="font:SmallBoldSystemFont"
+      backgroundColor="0x551A8B"
+      backgroundOpacity="0"
+      />
+       <standardMessageDialog
+			id = "radiomessagedialog"
+			visible = "false"
+			translation = "[300, 300]"
+	/>	
+		<standardMessageDialog
+			id = "searchmessagedialog"
+			visible = "false"
+			translation = "[300, 300]"
+	/>	
+	<Poster 
+      id = "shiftDirection" 
+      translation = "[ 860, 497 ]" 
+      width = "200" 
+      height = "80"
+      
+       >
+      	<Label
+     	id = "shiftLabel"
+     	horizAlign="center"
+	 	translation="[0,110]"
+     	font="font:SmallestSystemFont"
+     	text= ""
+     	vertAlign="center"
+     	width="200"
+     	visible = "true"
+     	scaleRotateCenter = "[ 100.0, 75.0 ]"
+     	/>
+
+    </Poster>	
+	      
+	</children>
+	
+</component>

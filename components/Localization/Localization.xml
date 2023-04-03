@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--********** Copyright 2022 RedCellApps.  All Rights Reserved. **********-->
+
+<!--THIS UI IS MADE FOR 1920x1080px DISPLAY-->
+
+<component name="Localization" extends="Node">
+	
+	<interface>
+
+  	<field id="langs" type = "array"/>
+
+  	</interface>
+	<!-- importing main handler -->
+	<script type="text/brightscript" uri="pkg:/components/Localization/Localization.brs" />
+	
+	
+</component>

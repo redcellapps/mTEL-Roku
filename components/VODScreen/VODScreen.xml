@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--********** Copyright 2022 RedCellApps.  All Rights Reserved. **********-->
+
+<!--THIS UI IS MADE FOR 1920x1080px DISPLAY-->
+
+<component name="VODScreen" extends="Group" initialFocus = "ChannelMarkupGrid">
+	
+	<interface>
+    <field id="token" type = "string"/>
+  	<field id="contents" type = "array"/>
+	<field id="contnt" type = "node"/>
+  	</interface>
+	<!-- importing main handler -->
+	<script type="text/brightscript" uri="pkg:/components/VODScreen/VODScreen.brs" />
+	<children>
+	
+	
+	
+	<Poster
+		id = "ionPoster"
+		uri = "pkg:/images/IonBkgFullHD.png"
+		width = "0.0"
+		height = "0.0"
+		translation = "[0, 0]"
+	/>
+      
+	<MarkupGrid 
+      id = "ChannelMarkupGrid" 
+      itemComponentName = "ContentScreenGridItem"
+      numColumns = "8" 
+      numRows = "1" 
+      itemSize = "[ 208, 75 ]" 
+      itemSpacing = "[ 20, 20 ]" 
+      drawFocusFeedback = "true"
+      translation="[100,350]"
+       />
+      
+       <Label
+		id = "ShowTitle"
+		text = "Show Title"
+		width = "1280"
+		font="font:LargeBoldSystemFont"
+		translation = "[100, 650]"
+		horizAlign = "left"
+		vertAlign = "top"
+		wrap = "true"
+		color = "#eeeeee"
+		visible = "false"
+	/>
+      
+       <Label
+		id = "ShowDesc"
+		text = "Show Description"
+		width = "960"
+		height = "300"
+		translation = "[100, 700]"
+		horizAlign = "left"
+		vertAlign = "top"
+		wrap = "true"
+		color = "#eeeeee"
+		visible = "false"
+	/>
+	  <ZoomRowList 
+      id = "VODRowList" 
+      translation = "[ 100, 250 ]" 
+      itemComponentName = "voditem" 
+      rowItemHeight = "200"
+      rowItemZoomHeight = "250"
+      rowHeight = "250"
+      rowZoomHeight = "300"
+      rowItemAspectRatio = "1.77777"
+      spacingAfterRowItem = "[50]"
+      drawFocusFeedback = "true" 
+      wrap = "false" />
+	
+
+	<Overhang
+      id="overhang"
+      showOptions="true"
+      showClock="true"
+      logoUri="pkg:/images/ionlogo.png"
+      translation="[0,60]"/>
+       
+    <Video id="videoBkg" width="1920" height="1080" visible="false" />
+        
+    <LoadingIndicator
+      id="loadingIndicator"
+      imageUri="pkg:/components/LoadingIndicator/loader.png"
+      clockwise="true"
+      spinInterval="2"
+      fadeInterval="0.5"
+      spacing="20"
+      imageWidth="100"
+      text="Loading..."
+      width="1920"
+      height="1080"
+      centered="false"
+      translation="[0, 0]"
+      textPadding="10"
+      font="font:SmallBoldSystemFont"
+      backgroundColor="0x551A8B"
+      backgroundOpacity="0"
+      />
+       <standardMessageDialog
+			id = "radiomessagedialog"
+			visible = "false"
+			translation = "[300, 300]"
+			
+	/>	
+	      
+	</children>
+	
+</component>

@@ -1,0 +1,110 @@
+<?xml version = "1.0" encoding = "utf-8" ?>
+
+<!--********** Copyright 2016 Roku Corp.  All Rights Reserved. **********-->
+
+<component name = "EpgGridItem" extends = "Group" >
+ 
+  <interface> 
+    <field id = "itemContent" type = "node" onChange = "showcontent"/>
+    <field id = "focusPercent" type = "float" onChange = "showfocus"/> 
+  </interface>
+ 
+  <script type = "text/brightscript" >
+
+    <![CDATA[
+
+    sub init()
+
+      m.itemposter = m.top.findNode("itemPoster") 
+      m.labelMask = m.top.findNode("labelMask")
+      m.itemmask = m.top.findNode("itemMask")
+      m.itemLabel = m.top.findNode("itemLabel")
+    
+    end sub
+
+    sub showcontent()
+      itemcontent = m.top.itemContent
+      m.itemposter.uri = itemcontent.hdposterurl
+      m.itemLabel.text = ""
+    end sub
+
+    sub showfocus()
+      scale = 1 + (m.top.focusPercent * 0.08)
+      m.itemposter.scale = [scale, scale]
+      
+    end sub
+
+    ]]>
+
+  </script>
+
+  <children >
+
+ <!--    <Poster 
+      id = "itemPoster" 
+      translation = "[ 0, 0 ]" 
+      width = "200" 
+      height = "150" 
+       >
+       
+      <Rectangle 
+        id = "labelMask" 
+        width = "200" 
+        height = "30" 
+        color = "0xeeeeee" 
+        translation="[10,20]"
+        opacity = "0.75"
+        visible = "true" />
+
+      <Rectangle 
+        id = "itemMask" 
+        width = "80" 
+        height = "80" 
+        scaleRotateCenter = "[ 256.0, 144.0 ]" 
+        color = "0x101010FF" 
+        opacity = "0.75" />
+
+    </Poster>
+     -->
+        <Poster 
+      id = "itemPoster" 
+      translation = "[ 10, 10 ]" 
+      width = "320" 
+      height = "200" 
+      scaleRotateCenter = "[ 160.0, 100.0 ]" >
+      
+     	<Label
+     	id = "itemLabel"
+     	horizAlign="left"
+	 	translation="[0,170]"
+     	font="font:SmallestSystemFont"
+     	text= "TEST TEST"
+     	vertAlign="center"
+     	width="300"
+     	scaleRotateCenter = "[ 100.0, 180.0 ]"
+     	visible = "true"
+     	/>
+      
+      	<Rectangle 
+        id = "itemMask" 
+        color = "0x000000FF" 
+        opacity = "0.5" 
+        width = "320" 
+        height = "200" 
+        scaleRotateCenter = "[ 160.0, 100.0 ]" 
+        visible = "true"/>
+        
+        <ScrollingLabel 
+		id="itemText" 
+		horizAlign="left"
+		translation="[10,170]"
+        font="font:SmallestSystemFont"
+        vertAlign="center"
+        maxWidth="280"
+        text = "TESTINGTESTINGTESTING"
+        scaleRotateCenter = "[ 180.0, 150.0 ]" />   
+    </Poster>
+
+  </children>
+
+</component>

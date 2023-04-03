@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--********** Copyright 2022 RedCellApps.  All Rights Reserved. **********-->
+
+<!--THIS UI IS MADE FOR 1920x1080px DISPLAY-->
+
+<component name="LoginScreen" extends="Group" initialFocus = "BtnGrp">
+	
+	<interface>
+    <field id="token" type = "string"/>
+  	<field id="contents" type = "array"/>
+  	<field id="momo" type = "string"/>
+  	<field id="content" type = "node"/>
+
+  	</interface>
+	<!-- importing main handler -->
+	<script type="text/brightscript" uri="pkg:/components/LoginScreen/LoginScreen.brs" />
+	
+	<children>
+	
+	<Poster
+		id = "ionPoster"
+		uri = "pkg:/images/IonBkgFullHD.png"
+		width = "0.0"
+		height = "0.0"
+		translation = "[0, 0]"
+	/>
+	  
+	<Label
+		id = "welcome"
+		text = ""
+		translation = "[100, 400]"
+		font = "font:LargeBoldSystemFont"
+		horizAlign = "left"
+		vertAlign = "center"
+	    color = "#e6b187"		
+	/>
+	
+	<Label
+		id = "welcomeText"
+		text = ""
+		width = "1000"
+		height = "100"
+		translation = "[100, 500]"
+		horizAlign = "left"
+		vertAlign = "top"
+		wrap = "true"
+		color = "#e6b187"
+	/>
+	<Label
+		id = "welcomeText1"
+		text = ""
+		width = "1000"
+		height = "100"
+		translation = "[100, 600]"
+		horizAlign = "left"
+		vertAlign = "top"
+		wrap = "true"
+		color = "#e6b187"
+	/>
+	<Label
+		id = "welcomeText2"
+		text = ""
+		width = "1000"
+		height = "100"
+		translation = "[100, 700]"
+		horizAlign = "left"
+		vertAlign = "top"
+		wrap = "true"
+		color = "#e6b187"
+	/>
+	
+	
+	<!-- <Label 
+			id = "label" 
+			text = "Test label" 
+			horizAlign = "center"
+			vertAlign = "center"
+			width = "1920"
+			height = "1080"
+			font = "font:LargeBoldSystemFont" /> -->
+		
+<!-- 	<ButtonGroup id = "btnGrp" translation = "[1300, 600]"
+	focusBitmapUri = "pkg:/images/BlankButton.png"
+	iconUri = ""
+    focusedIconUri = ""
+    focusedTextColor = "0xEEEEEE"
+    textColor = "0xEEEEEE"
+    minWidth = "350"
+    itemSpacings = "[20,20]"
+    visible = "false" 
+    
+	/>-->
+	
+	<ButtonGroup id="btnGrp" layoutDirection="vert" minWidth="350" itemSpacings="[25, 0]" translation="[1300,500]" visible = "false">
+        <Button
+           id="LoginButton"             
+           focusBitmapUri="pkg:/images/BlankButton.png"                
+           iconUri=""
+           focusedIconUri=""                        
+           textFont="font:MediumSystemFont"
+           focusedTextFont="font:MediumBoldSystemFont"
+           focusedTextColor = "0xEEEEEE"
+    	   textColor = "0xEEEEEE"
+    	   minWidth = "350"                 
+           text=""
+           />                     
+        <Button
+           id="ContactButton"
+           focusBitmapUri="pkg:/images/BlankButton.png"                
+           iconUri=""
+           focusedIconUri=""                                          
+           textFont="font:MediumSystemFont"
+           focusedTextFont="font:MediumBoldSystemFont"
+           focusedTextColor = "0xEEEEEE"
+    	   textColor = "0xEEEEEE"
+    	   minWidth = "350"
+           text=""/>                                              
+     </ButtonGroup>
+	
+	<MarkupGrid 
+      id = "LangButtons" 
+      itemComponentName = "LangButton"
+      numColumns = "1" 
+      numRows = "5" 
+      itemSize = "[ 200, 75 ]" 
+      itemSpacing = "[ 20, 20 ]" 
+      drawFocusFeedback = "true"
+      translation="[600,450]"
+       />
+
+<ButtonGroup id="flagBtnGrp" layoutDirection="vert" minWidth="350" itemSpacings="[25, 0]" translation="[1300,300]" visible = "false">
+        <Button
+           id="engButton"             
+           focusBitmapUri="pkg:/images/BlankButton.png"                
+           iconUri=""
+           focusedIconUri="pkg:/images/CountryIcons/uk.png"                        
+           textFont="font:MediumSystemFont"
+           focusedTextFont="font:MediumBoldSystemFont"
+           focusedTextColor = "0xEEEEEE"
+    	   textColor = "0xEEEEEE"
+    	   minWidth = "350"                 
+           text="English"
+           />                     
+        <Button
+           id="baButton"
+           focusBitmapUri="pkg:/images/BlankButton.png"                
+           iconUri=""
+           focusedIconUri="pkg:/images/CountryIcons/bih.png"                                          
+           textFont="font:MediumSystemFont"
+           focusedTextFont="font:MediumBoldSystemFont"
+           focusedTextColor = "0xEEEEEE"
+    	   textColor = "0xEEEEEE"
+    	   minWidth = "350"
+           text="Bosnian"/>
+        <Button
+           id="croButton"             
+           focusBitmapUri="pkg:/images/BlankButton.png"                
+           iconUri=""
+           focusedIconUri="pkg:/images/CountryIcons/cro.png"                        
+           textFont="font:MediumSystemFont"
+           focusedTextFont="font:MediumBoldSystemFont"
+           focusedTextColor = "0xEEEEEE"
+    	   textColor = "0xEEEEEE"
+    	   minWidth = "350"                 
+           text="Croatian"/>             
+           <Button
+           id="mkButton"
+           focusBitmapUri="pkg:/images/BlankButton.png"                
+           iconUri=""
+           focusedIconUri="pkg:/images/CountryIcons/mcd.png"                                             
+           textFont="font:MediumSystemFont"
+           focusedTextFont="font:MediumBoldSystemFont"
+           focusedTextColor = "0xEEEEEE"
+    	   textColor = "0xEEEEEE"
+    	   minWidth = "350"
+           text="Macedonian"/>   
+           <Button
+           id="srButton"
+           focusBitmapUri="pkg:/images/BlankButton.png"                
+           iconUri=""
+           focusedIconUri="pkg:/images/CountryIcons/srb.png"                                             
+           textFont="font:MediumSystemFont"
+           focusedTextFont="font:MediumBoldSystemFont"
+           focusedTextColor = "0xEEEEEE"
+    	   textColor = "0xEEEEEE"
+    	   minWidth = "350"
+           text="Serbian"/>                                                
+     </ButtonGroup>
+	
+	         <Overhang
+            id="overhang"
+            showOptions="true"
+            showClock="true"
+            logoUri="pkg:/images/ionlogo.png"
+            translation="[0,60]"
+        />
+    
+    
+       
+	<standardKeyboardDialog
+			id = "dialog"
+			keyboardDomain = "numeric"
+			translation = "[300, 300]"
+	/>	
+	
+	<StandardDialog id="AboutUs" visible = "false" width = "1380">
+	
+  <StdDlgContentArea>
+  <StdDlgGraphicItem graphicUri="pkg:/images/logoionmtel.png" GraphicAlign = "center_above" graphicHeight = "300" graphicWidth = "480"/>
+  <StdDlgTextItem text="               To subscribe or activate your subscription please call" />
+  <StdDlgTextItem text="                                        America: 1.888.768.3862" /> 
+  <StdDlgTextItem text="                                       Australia: 1300.138.390" />
+  <StdDlgTextItem text="                                          or visit www.ion.tv" />
+  </StdDlgContentArea>
+  <StdDlgButtonArea id="buttonArea" >
+    <StdDlgButton text="Dismiss" />
+  </StdDlgButtonArea>
+	</StandardDialog>
+	
+        <LoadingIndicator
+      id="loadingIndicator"
+      imageUri="pkg:/components/LoadingIndicator/loader.png"
+      clockwise="true"
+      spinInterval="2"
+      fadeInterval="0.5"
+      spacing="20"
+      imageWidth="100"
+      text="Loading..."
+      width="1920"
+      height="1080"
+      centered="false"
+      translation="[0, 0]"
+      textPadding="10"
+      font="font:SmallBoldSystemFont"
+      backgroundColor="0x551A8B"
+      backgroundOpacity="0"
+      />
+      
+      <standardMessageDialog
+			id = "messagedialog"
+			visible = "false"
+			translation = "[300, 300]"
+	/>	
+	
+
+	
+	      
+	</children>
+	
+</component>

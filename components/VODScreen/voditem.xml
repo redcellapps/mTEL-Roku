@@ -1,0 +1,78 @@
+<?xml version = "1.0" encoding = "utf-8" ?>
+
+<!--********** Copyright 2016 Roku Corp.  All Rights Reserved. **********-->
+
+<component name = "voditem" extends = "Group" >
+ 
+  <interface> 
+    <field id="width" type="float" alias="itemPoster.width" />
+    <field id="height" type="float" alias="itemPoster.height" /> 
+    <field id = "itemContent" type = "node" onChange = "showcontent"/>
+    <field id = "focusPercent" type = "float" onChange = "showfocus"/> 
+  </interface>
+ 
+  <script type = "text/brightscript" >
+
+    <![CDATA[
+
+    sub init()
+
+     m.itemposter = m.top.findNode("itemPoster") 
+      'm.itemmask = m.top.findNode("itemMask")
+     m.itemlabel = m.top.findNode("itemLabel")
+    end sub
+
+    sub showcontent()
+      itemcontent = m.top.itemContent
+      m.itemposter.uri = itemcontent.hdposterurl
+      m.itemlabel.text = itemcontent.title
+    end sub
+
+    sub showfocus()
+      'scale = 1 + (m.top.focusPercent * 0.08)
+      'm.itemposter.scale = [scale, scale]
+      
+    end sub
+
+    ]]>
+
+  </script>
+
+  <children >
+
+    <Poster 
+      id = "itemPoster" 
+      translation = "[ 0, 0 ]" 
+      width = "415" 
+      height = "250" >
+      
+      
+	<Label
+       id = "itemLabel"
+       translation = "[ 0, 0 ]" 
+       text = "test"
+       font="font:SmallestSystemFont"
+       color = "0xE4E4E4"
+       width = "300"
+	   height = "50"
+	   horizAlign = "left"
+       vertAlign = "center"
+       wrap = "true"
+       />
+       
+       
+       
+
+<!--       <Rectangle 
+        id = "itemMask" 
+        width = "80" 
+        height = "80" 
+        scaleRotateCenter = "[ 256.0, 144.0 ]" 
+        color = "0x101010FF" 
+        opacity = "0.75" /> -->
+
+    </Poster>
+
+  </children>
+
+</component>

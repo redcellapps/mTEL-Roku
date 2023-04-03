@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--********** Copyright 2022 RedCellApps.  All Rights Reserved. **********-->
+
+<!--THIS UI IS MADE FOR 1920x1080px DISPLAY-->
+
+<component name="HomeScreen" extends="Group" initialFocus = "homeBtnGrp">
+	
+	<interface>
+	<field id="appExit" type="bool" alwaysnotify="true" value="false"/> 
+    <field id="token" type = "string"/>
+  	<field id="contents" type = "array"/>
+  	<field id="searchContent" type = "node"/>
+  	<field id="momo" type = "string"/>
+  	<field id="goToScreen" type = "integer"/>
+  	 <function name="getSearchContent" />
+  	</interface>
+	<!-- importing main handler -->
+	<script type="text/brightscript" uri="pkg:/components/HomeScreen/HomeScreen.brs" />
+	
+	<children>
+	
+	<Poster
+		id = "ionPoster"
+		uri = "pkg:/images/IonBkgFullHD.png"
+		width = "0.0"
+		height = "0.0"
+		translation = "[0, 0]"
+	/>
+	  
+	<Label
+		id = "welcome"
+		text = "Welcome"
+		translation = "[100, 400]"
+		font = "font:LargeBoldSystemFont"
+		horizAlign = "left"
+		vertAlign = "center"
+	    color = "#e6b187"		
+	/>
+	
+	<Label
+		id = "welcomeText"
+		text = "Welcome to iON.tv"
+		width = "800"
+		height = "300"
+		translation = "[100, 450]"
+		horizAlign = "left"
+		vertAlign = "top"
+		wrap = "true"
+		color = "#e6b187"
+	/>
+		
+	<ButtonGroup id="homeBtnGrp" layoutDirection="vert" minWidth="350" itemSpacings="[30, 0]" translation="[1300,200]" visible = "false" >
+        
+        <Button
+           id="searchButton"
+           focusBitmapUri="pkg:/images/BlankButton.png"                
+           iconUri="pkg:/images/ButtonIcons/Search.png"
+           focusedIconUri="pkg:/images/ButtonIcons/Search.png"                                          
+           textFont="font:MediumSystemFont"
+           focusedTextFont="font:MediumBoldSystemFont"
+           focusedTextColor = "0xEEEEEE"
+    	   textColor = "0xEEEEEE"
+    	   minWidth = "350"
+           text="Pretraga"/>
+        <Button
+           id="tvButton"             
+           focusBitmapUri="pkg:/images/BlankButton.png"                
+           iconUri="pkg:/images/ButtonIcons/TV.png"
+           focusedIconUri="pkg:/images/ButtonIcons/TV.png"                        
+           textFont="font:MediumSystemFont"
+           focusedTextFont="font:MediumBoldSystemFont"
+           focusedTextColor = "0xEEEEEE"
+    	   textColor = "0xEEEEEE"
+    	   minWidth = "350"                 
+           text="Televizija"/>                     
+<!--            <Button
+           id="HomeButton"
+           focusBitmapUri="pkg:/images/BlankButton.png"                
+           iconUri="pkg:/images/ButtonIcons/Home.png"
+           focusedIconUri="pkg:/images/ButtonIcons/Home.png"                                             
+           textFont="font:MediumSystemFont"
+           focusedTextFont="font:MediumBoldSystemFont"
+           focusedTextColor = "0xEEEEEE"
+    	   textColor = "0xEEEEEE"
+    	   minWidth = "350"
+           text="Home"/>   --> 
+           <Button
+           id="radioButton"
+           focusBitmapUri="pkg:/images/BlankButton.png"                
+           iconUri="pkg:/images/ButtonIcons/Radio.png"
+           focusedIconUri="pkg:/images/ButtonIcons/Radio.png"                                             
+           textFont="font:MediumSystemFont"
+           focusedTextFont="font:MediumBoldSystemFont"
+           focusedTextColor = "0xEEEEEE"
+    	   textColor = "0xEEEEEE"
+    	   minWidth = "350"
+           text="Radio"/>
+           <Button
+           id="videoButton"
+           focusBitmapUri="pkg:/images/BlankButton.png"                
+           iconUri="pkg:/images/ButtonIcons/Movies.png"
+           focusedIconUri="pkg:/images/ButtonIcons/Movies.png"                                             
+           textFont="font:MediumSystemFont"
+           focusedTextFont="font:MediumBoldSystemFont"
+           focusedTextColor = "0xEEEEEE"
+    	   textColor = "0xEEEEEE"
+    	   minWidth = "350"
+           text="Video Klub"/>  
+           <Button
+           id="languageButton"
+           focusBitmapUri="pkg:/images/BlankButton.png"                
+           iconUri="pkg:/images/ButtonIcons/choose.png"
+           focusedIconUri="pkg:/images/ButtonIcons/choose.png"                                             
+           textFont="font:MediumSystemFont"
+           focusedTextFont="font:MediumBoldSystemFont"
+           focusedTextColor = "0xEEEEEE"
+    	   textColor = "0xEEEEEE"
+    	   minWidth = "350"
+           text="Language"/> 
+           <Button
+           id="logoutButton"
+           focusBitmapUri="pkg:/images/BlankButton.png"                
+           iconUri="pkg:/images/ButtonIcons/logout.png"
+           focusedIconUri="pkg:/images/ButtonIcons/logout.png"                                             
+           textFont="font:MediumSystemFont"
+           focusedTextFont="font:MediumBoldSystemFont"
+           focusedTextColor = "0xEEEEEE"
+    	   textColor = "0xEEEEEE"
+    	   minWidth = "350"
+           text="Logout"/>                                                                  
+     </ButtonGroup>
+     
+     <ZoomRowList 
+      id = "radioRowList" 
+      translation = "[ 100, 350 ]" 
+      itemComponentName = "radioItem" 
+      rowItemHeight = "30"
+      rowItemZoomHeight = "50"
+      rowHeight = "75"
+      rowZoomHeight = "100"
+      rowItemAspectRatio = "9.0"
+      spacingAfterRowItem = "[50]"
+      drawFocusFeedback = "true"  />
+      
+      <LabelList 
+      id = "SelectLanguageList" 
+      translation = "[300, 250]" 
+      visible = "false" 
+      itemSize = "[400,100]" 
+      vertFocusAnimationStyle = "floatingFocus" 
+      textHorizAlign = "center"
+      sectionDividerLeftOffset = "100"
+      
+      />
+	         <Overhang
+            id="overhang"
+            showOptions="true"
+            showClock="true"
+            logoUri="pkg:/images/ionlogo.png"
+            translation="[0,60]"
+        />
+        
+        
+	<standardKeyboardDialog
+			id = "dialog"
+			keyboardDomain = "numeric"
+			translation = "[300, 300]"
+	/>
+	
+	<standardMessageDialog
+			id = "radiomessagedialog"
+			visible = "false"
+			translation = "[300, 300]"
+	/>		
+	
+	<standardMessageDialog
+			id = "searchmessagedialog"
+			visible = "false"
+			translation = "[300, 300]"
+	/>		
+ 	      
+	</children>
+	
+</component>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--********** Copyright 2022 RedCellApps.  All Rights Reserved. **********-->
+
+<component name="MainScene" extends="Scene">
+	<interface>
+    <field id="appExit" type="bool" alwaysnotify="true" value="false"/> 
+  	</interface>
+    <script type="text/brightscript" uri="MainScene.brs" />
+    <script type="text/brightscript" uri="UILogic/ScreenStackLogic.brs" />
+    <script type="text/brightscript" uri="UILogic/ContentTaskLogic.brs" />
+    <script type="text/brightscript" uri="UILogic/GridScreenLogic.brs" />
+    <script type="text/brightscript" uri="UILogic/VideoPlayerLogic.brs" />
+    <children>
+         <!-- Overhang with Roku Developers logo -->
+	<LoadingIndicator
+      id="loadingIndicator"
+      imageUri="pkg:/components/LoadingIndicator/loader.png"
+      clockwise="true"
+      spinInterval="2"
+      fadeInterval="0.5"
+      spacing="20"
+      imageWidth="100"
+      text="Loading..."
+      width="1920"
+      height="1080"
+      centered="false"
+      translation="[0, 0]"
+      textPadding="10"
+      font="font:SmallBoldSystemFont"
+      backgroundColor="0x551A8B"
+      backgroundOpacity="0"/>
+      
+      
+<!-- <FadingBackground
+      id="Background"
+      width="1920"
+      height="1080"
+      color="0x000000"
+      ShadeOpacity="0.8" /> -->
+    </children>
+</component>

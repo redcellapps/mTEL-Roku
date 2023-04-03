@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--********** Copyright 2022 RedCellApps.  All Rights Reserved. **********-->
+
+<!--THIS UI IS MADE FOR 1920x1080px DISPLAY-->
+
+<component name="ContentScreen" extends="Group" initialFocus = "TopMenu">
+	
+	<interface>
+    <field id="token" type = "string"/>
+  	<field id="contents" type = "array"/>
+	<field id="searchContent" type = "node"/>
+	<field id="landTo" type = "string"/>
+  	</interface>
+	<!-- importing main handler -->
+	<script type="text/brightscript" uri="pkg:/components/ContentScreen/ContentScreen.brs" />
+	<children>
+	
+	
+	<HomeScreen id="HomeScreen" />  
+	
+	<Poster
+		id = "ionPoster"
+		uri = "pkg:/images/IonBkgFullHD.png"
+		width = "0.0"
+		height = "0.0"
+		translation = "[0, 0]"
+	/>
+	
+    <ContentNode id = "TypeContentNode" >
+      <ContentNode hdgridposterurl="pkg:/images/NavBar/TVButton.png" title = "1"  />
+      <ContentNode hdgridposterurl="pkg:/images/NavBar/RadioButton.png" title = "2" />
+      <ContentNode hdgridposterurl="pkg:/images/NavBar/sportsButton.png" title = "3" />
+      <ContentNode hdgridposterurl="pkg:/images/NavBar/moviesButton.png" title = "4"/>
+      <ContentNode hdgridposterurl="pkg:/images/NavBar/musicButton.png" title = "5"/>      
+    </ContentNode>
+      
+      <MarkupGrid 
+      id = "TopMenu" 
+      itemComponentName = "topmenuitem"
+      numColumns = "6" 
+      numRows = "1" 
+      itemSize = "[ 208, 75 ]" 
+      itemSpacing = "[ 20, 20 ]" 
+      drawFocusFeedback = "true"
+      translation="[750,200]"      
+       />
+      
+    <RowList      
+      id="ChannelRowList"
+      itemComponentName="RowListItemComponent"
+      translation="[100,700]"
+      numRows="1"
+      rowitemSize="[[320,200]]"
+      rowItemSpacing="[[30,0]]"
+      itemSize="[1920,200]"
+      rowLabelOffset="[[0,0]]"
+      focusXOffset="[0]"
+      showRowLabel="[false]"
+      rowFocusAnimationStyle="floatingFocus"
+      vertFocusAnimationStyle="floatingFocus"/>
+      
+      
+	<MarkupGrid 
+      id = "ChannelMarkupGrid" 
+      itemComponentName = "ContentScreenGridItem"
+      numColumns = "8" 
+      numRows = "1" 
+      itemSize = "[ 208, 75 ]" 
+      itemSpacing = "[ 20, 20 ]" 
+      drawFocusFeedback = "true"
+      translation="[100,350]" 
+      visible = "true"
+       />
+       
+      <MarkupGrid 
+      id = "EpgMarkupGrid" 
+      itemComponentName = "EpgGridItem"
+      numColumns = "8" 
+      numRows = "1" 
+      itemSize = "[ 200, 150 ]" 
+      itemSpacing = "[ 20, 20 ]" 
+      drawFocusFeedback = "true"
+      translation="[100,450]"
+       />
+       <Label
+		id = "ShowTitle"
+		text = "Show Title"
+		width = "1280"
+		font="font:LargeBoldSystemFont"
+		translation = "[100, 650]"
+		horizAlign = "left"
+		vertAlign = "top"
+		wrap = "true"
+		color = "#eeeeee"
+		visible = "false"
+	/>
+      
+       <Label
+		id = "ShowDesc"
+		text = "Show Description"
+		width = "960"
+		height = "300"
+		translation = "[100, 700]"
+		horizAlign = "left"
+		vertAlign = "top"
+		wrap = "true"
+		color = "#eeeeee"
+		visible = "false"
+	/>
+	  <ZoomRowList 
+      id = "radioRowList" 
+      translation = "[ 100, 350 ]" 
+      itemComponentName = "radioItem" 
+      rowItemHeight = "30"
+      rowItemZoomHeight = "50"
+      rowHeight = "75"
+      rowZoomHeight = "100"
+      rowItemAspectRatio = "9.0"
+      spacingAfterRowItem = "[50]"
+      drawFocusFeedback = "true" 
+	/>
+	
+
+	<Overhang
+      id="overhang"
+      showOptions="true"
+      showClock="true"
+      logoUri="pkg:/images/ionlogo.png"
+      translation="[0,60]"/>
+       
+    <Video id="videoBkg" width="1920" height="1080" visible="false" />
+        
+    <LoadingIndicator
+      id="loadingIndicator"
+      imageUri="pkg:/components/LoadingIndicator/loader.png"
+      clockwise="true"
+      spinInterval="2"
+      fadeInterval="0.5"
+      spacing="20"
+      imageWidth="100"
+      text="Loading..."
+      width="1920"
+      height="1080"
+      centered="false"
+      translation="[0, 0]"
+      textPadding="10"
+      font="font:SmallBoldSystemFont"
+      backgroundColor="0x551A8B"
+      backgroundOpacity="0"
+      />
+       <standardMessageDialog
+			id = "radiomessagedialog"
+			visible = "false"
+			translation = "[300, 300]"
+	/>	
+	      
+	</children>
+	
+</component>

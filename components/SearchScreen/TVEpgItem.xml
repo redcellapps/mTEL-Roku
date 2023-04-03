@@ -1,0 +1,129 @@
+<?xml version = "1.0" encoding = "utf-8" ?>
+
+<!--********** Copyright 2016 Roku Corp.  All Rights Reserved. **********-->
+
+<component name = "TvEpgGridItem" extends = "Group" >
+ 
+  <interface> 
+    <field id = "itemContent" type = "node" onChange = "showcontent"/>
+    <field id = "focusPercent" type = "float" onChange = "showfocus"/> 
+  </interface>
+ 
+  <script type = "text/brightscript" >
+
+    <![CDATA[
+
+    sub init()
+	  m.top.id = "EpgGridItem"
+      m.itemposter = m.top.findNode("itemPoster") 
+      m.labelMask = m.top.findNode("labelMask")
+     ' m.itemmask = m.top.findNode("itemMask")
+     m.itemLabel = m.top.findNode("itemLabel")
+     m.itemScrollLabel = m.top.findNode("itemScrollLabel")
+    end sub
+
+    sub showcontent()
+      itemcontent = m.top.itemContent
+      strt = itemcontent.ShortDescriptionLine1
+      showStartTime = timeFromIsoStr(strt)
+      m.itemposter.uri = itemcontent.hdposterurl
+      m.itemLabel.text = showStartTime
+      m.itemScrollLabel.text = itemcontent.title
+    end sub
+
+    sub showfocus()
+      scale = 1 + (m.top.focusPercent * 0.08)
+      m.itemposter.scale = [scale, scale]
+      
+    end sub
+    function timeFromIsoStr (timeStr as String)
+	isoTmp = ""
+	isoTmp = Mid(timeStr,9,2)+":"+Mid(timeStr,11,2)
+	return isoTmp
+	endfunction
+
+    ]]>
+
+  </script>
+
+  <children >
+
+ <!--    <Poster 
+      id = "itemPoster" 
+      translation = "[ 0, 0 ]" 
+      width = "200" 
+      height = "150" 
+       >
+       
+      <Rectangle 
+        id = "labelMask" 
+        width = "200" 
+        height = "30" 
+        color = "0xeeeeee" 
+        translation="[10,20]"
+        opacity = "0.75"
+        visible = "true" />
+
+      <Rectangle 
+        id = "itemMask" 
+        width = "80" 
+        height = "80" 
+        scaleRotateCenter = "[ 256.0, 144.0 ]" 
+        color = "0x101010FF" 
+        opacity = "0.75" />
+
+    </Poster>
+     -->
+        <Poster 
+      id = "itemPoster" 
+      translation = "[ 10, 10 ]" 
+      width = "200" 
+      height = "200"
+      scaleRotateCenter = "[ 100.0, 75.0 ]" 
+       >
+       <Rectangle 
+        id = "itemMask" 
+        width = "200" 
+        height = "70" 
+        scaleRotateCenter = "[0.0, 0.0 ]" 
+        color = "0x101010FF" 
+        translation="[0,130]"
+        opacity = "0.75" />
+      
+      	<Label
+     	id = "itemLabel"
+     	horizAlign="left"
+	 	translation="[10,140]"
+     	font="font:SmallestSystemFont"
+     	text= ""
+     	vertAlign="center"
+     	width="200"
+     	visible = "true"
+     	scaleRotateCenter = "[ 100.0, 75.0 ]"
+     	/>
+      
+      	<ScrollingLabel 
+		id="itemScrollLabel" 
+		horizAlign="left"
+		translation="[10,170]"
+        font="font:SmallestSystemFont"
+        vertAlign="center"
+        maxWidth="200"
+        text = "Live"
+        scaleRotateCenter = "[ 100.0, 75.0 ]" />
+        
+        
+       <!--  <Rectangle 
+        id = "itemMask" 
+        color = "0x000000FF" 
+        opacity = "0.5" 
+        width = "200" 
+        height = "150" 
+        visible = "false"
+        scaleRotateCenter = "[ 100.0, 75.0 ]"/> -->
+    </Poster>
+    
+
+  </children>
+
+</component>
