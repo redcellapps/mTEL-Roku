@@ -1,0 +1,16 @@
+title=iON - App
+major_version=1
+minor_version=2
+build_version=1
+mm_icon_focus_hd=pkg:/images/icon_focus_hd.png
+mm_icon_focus_sd=pkg:/images/icon_focus_sd.png
+mm_icon_focus_fhd=pkg:/images/icon_focus_hd.png
+splash_screen_fhd=pkg:/images/splash_fhd.jpg
+splash_screen_hd=pkg:/images/splash_hd.jpg
+splash_screen_sd=pkg:/images/splash_sd.jpg
+splash_color=#0e2b47
+splash_min_time=1000
+ui_resolutions=FHD,HD
+splash_rsg_optimization=1
+bitmovin_player_license_key=9d5e04d1-31b3-42fe-a326-b10b248e2ada
+supports_input_launch=1
